@@ -1,0 +1,23 @@
+{
+  "name": "pro-readme-gen",
+  "version": "1.0.0",
+  "description": "README generator",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/J0263/pro-README-gen.git"
+  },
+  "author": "Jorge Bush",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/J0263/pro-README-gen/issues"
+  },
+  "homepage": "https://github.com/J0263/pro-README-gen#readme",
+  "dependencies": {
+    "inquirer": "^12.0.0"
+  }
+}
