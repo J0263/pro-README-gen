@@ -1,10 +1,13 @@
+/Import the inquirer package to prompt users for input
 import inquirer from 'inquirer';
 import fs from 'fs';
 
+//Define an array of questions to prompt the user. 
+//Objects comain input types
 const questions = [
     {
-      type: 'input',
-      name: 'title',
+      type: 'input', //type of input
+      name: 'title', //name to store user's response
       message: 'What is the title of your project?',
     },
     {
@@ -33,15 +36,15 @@ const questions = [
       message: 'What are the test instructions?',
     },
     {
-      type: 'list',
+      type: 'list', //input of list of choices
       name: 'license',
-      message: 'Choose a license for your project:',
-      choices: ['MIT', 'GPLv3', 'Apache 2.0', 'None'],
+      message: 'Choose a license for your project:', //tell user to select a license
+      choices: ['MIT', 'GPLv3', 'Apache 2.0', 'None'], //the list of choices
     },
     {
       type: 'input',
       name: 'github',
-      message: 'Enter your GitHub username:',
+      message: 'Enter your GitHub username:', 
     },
     {
       type: 'input',
@@ -49,13 +52,13 @@ const questions = [
       message: 'Enter your email address:',
     },
   ];
-
+ //this function generates the README content based on user input
   function generateReadme(answers) {
     return `
-    # ${answers.title}
+    # ${answers.title} //inserts title of project
   
     ## Description
-    ${answers.description}
+    ${answers.description} //inserts the description
   
     ## Table of Contents
     - [Installation](#installation)
@@ -66,47 +69,57 @@ const questions = [
     - [Questions](#questions)
   
     ## Installation
-    ${answers.installation}
+    ${answers.installation} //inserts install instructions
   
     ## Usage
-    ${answers.usage}
+    ${answers.usage} //inserts user
   
     ## License
-    This project is licensed under the ${answers.license} license.
+    This project is licensed under the ${answers.license} license. //displays user selected license
   
     ## Contributing
-    ${answers.contributing}
+    ${answers.contributing} //inserts contribution guidelines
   
     ## Tests
-    ${answers.tests}
+    ${answers.tests} //inserts test instructions
   
     ## Questions
-    If you have any questions, you can reach me at ${answers.email}.
-    You can find more of my work at [${answers.github}](https://github.com/${answers.github}).
+    If you have any questions, you can reach me at ${answers.email}. //adds email
+    You can find more of my work at [${answers.github}](https://github.com/${answers.github}). //adds github link
     `;
   }
 
+  //function to write the README content to a file
   function writeToFile(fileName, data) {
+    //fs.writeFile writes the content to the specified file
     fs.writeFile(fileName, data, (err) => {
       if (err) {
+        //log an error if fail
         console.error('Error writing to file:', err);
       } else {
+        //logs a success message when README file is generated
         console.log('README.md has been generated successfully!');
       }
     });
   }
 
+  //function initializes the program
   function init() {
-    inquirer
-      .prompt(questions)
-      .then((answers) => {
-        const readmeContent = generateReadme(answers);
-        writeToFile('README.md', readmeContent);
-      })
-      .catch((error) => {
-        console.error('An error occurred while prompting the user:', error);
-      });
-  }
-  
-  init();
+    //prompt the user with questions
+  inquirer
+    .prompt(questions)
+    .then((answers) => {
+      //after user provides answers, generate README content
+      const readmeContent = generateReadme(answers);
+      //write the content to README.md
+      writeToFile('README.md', readmeContent);
+    })
+    .catch((error) => {
+      //handle any errors during prompting process
+      console.error('An error occurred while prompting the user:', error);
+    });
+}
+
+//call the init function to start application
+init();
 

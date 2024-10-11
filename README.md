@@ -1,8 +1,8 @@
 
-    # My best project yet
+    # Jorge's Awesome Project
   
     ## Description
-    This is my best project yet
+    This is a brief description
   
     ## Table of Contents
     - [Installation](#installation)
@@ -13,21 +13,21 @@
     - [Questions](#questions)
   
     ## Installation
-    to install follow these instructions
+    follow these instructions
   
     ## Usage
-    use this 
+    usage info
   
     ## License
-    This project is licensed under the MIT license.
+    This project is licensed under the Apache 2.0 license.
   
     ## Contributing
-    follow the guidelines
+    follow these guidelines
   
     ## Tests
-    test 
+    these are the test instructions
   
     ## Questions
-    If you have any questions, you can reach me at jorge.bush12@gmail.com.
-    You can find more of my work at [J0263](https://github.com/J0263).
+    If you have any questions, you can reach me at jorge.b@gmail.com.
+    You can find more of my work at [jorge](https://github.com/jorge).
     
